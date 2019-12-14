@@ -1,5 +1,4 @@
 import React from 'react';
-import ApiService from '../../Utils/Api';
 import DeleteIcon from '../../assets/icons/delete.svg';
 import CircleIcon from '../../assets/icons/circle.svg';
 import CheckedIcon from '../../assets/icons/checked.svg';
@@ -106,14 +105,14 @@ class Todo extends React.Component {
 							>
 								<span onClick={() => onItemComplete(model._id, item._id)}>
 									{item.completed 
-										? <img src={CheckedIcon} /> 
-										: <img src={CircleIcon}  />}
+										? <img src={CheckedIcon} alt="done task" /> 
+										: <img src={CircleIcon} alt="in progress task" />}
 								</span>
 								<div className="w-100 pl-2 text-left">
 									{item.content}
 								</div>
 								<span onClick={()=>this.handleItemeDelete(item._id) }>
-									<img src={DeleteIcon} />
+									<img src={DeleteIcon} alt="delete task" />
 								</span>
 						</li>))}
 					</ul>

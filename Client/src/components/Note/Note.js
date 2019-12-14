@@ -1,6 +1,4 @@
 import React from 'react';
-import Swal from 'sweetalert2';
-import ApiService from '../../Utils/Api';
 
 class Note extends React.Component {
 	constructor(props){

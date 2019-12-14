@@ -1,5 +1,6 @@
 import React from 'react';
 import Swal from 'sweetalert2';
+import toastr from 'toastr';
 import List from '../List/List';
 import Todo from '../Todo/Todo';
 import Note from '../Note/Note';
@@ -69,19 +70,23 @@ class Main extends React.Component {
 				return model;
 			})
 		})
-
 	}
 
 	handleSave = (id, data) => {
-
 		if (id) {
 			ApiService.save(id, data)
 			.then( res => res.data)
-			.then( res => this.updateModels(Object.assign(res, data)));
+			.then( res => {
+				this.updateModels(Object.assign(res, data))
+				toastr.success('updated changes!');
+			});
 		} else {
 			ApiService.create(data)
 			.then( res => res.data)
-			.then( res => this.updateModels(res));
+			.then( res => {
+				this.updateModels(res);
+				toastr.success('updated changes!');
+			});
 		}
 	};
 
@@ -93,7 +98,6 @@ class Main extends React.Component {
 			this.setState({ view: null, selected: null });
 			this.updateModelItems(modelId, itemId, res);
 
-			// console.log('selected', selected);
 			this.setState({
 				view: 'select', 
 				selected: this.state.models.find(x => x._id === selected._id)
@@ -116,7 +120,8 @@ class Main extends React.Component {
 					this.setState(prevState => ({
 						selected: null,
 						models: prevState.models.filter(x => x._id !== id)
-					}))
+					}));
+					toastr.success('item deleted successfully!');
 				});
 			}
 		});
@@ -134,6 +139,7 @@ class Main extends React.Component {
 		})
 		.catch(function (error) {
 			console.log(error);
+			toastr.erro('problem of fetching data!');
 		})
 	}
 

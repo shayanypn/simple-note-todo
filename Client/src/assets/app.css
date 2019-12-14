@@ -25,6 +25,7 @@ body {
 .main--sidebar .list-group-item {
 	padding: .75rem;
 	opacity: 0.7;
+	cursor: pointer;
 }
 .main--sidebar .list-group-item.active {
 	background: #fff;
@@ -44,7 +45,7 @@ body {
 	background: #eee;
 }
 .list--todo {
-	max-height: 280px;
+	max-height: 250px;
 	overflow-y: scroll;
 }
 .list--todo li img {

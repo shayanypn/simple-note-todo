@@ -2,6 +2,7 @@ import React from 'react';
 import Main from './components/Main/Main';
 
 import './assets/bootstrap.min.css';
+import './../node_modules/toastr/build/toastr.css';
 import './assets/app.css';
 
 class App extends React.Component {

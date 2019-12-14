@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/todo-api', {
   useUnifiedTopology: true,
   useNewUrlParser: true
 })
-.then(() =>  console.log('connection succesful'))
+.then(() =>  console.log('mongodb connected!'))
 .catch((err) => console.error(err));
 
 

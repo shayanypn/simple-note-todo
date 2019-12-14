@@ -37,7 +37,6 @@ router.put('/:id/completed/:item_id',(req, res, next) => {
 		if (err) return next(err);
 
 		let updatedItem = {}
-
 		model['items'] = model.items.map(item => {
 			if (item._id == req.params.item_id) {
 				item['completed'] = !item.completed;
