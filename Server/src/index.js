@@ -2,16 +2,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // load mongoose package
 const mongoose = require('mongoose');
+const cors = require('cors');
 const router = require('./routes');
-
 
 // Use native Node promises
 mongoose.Promise = global.Promise;
 
 // connect to MongoDB
-mongoose.connect('mongodb://localhost/todo-api')
-  .then(() =>  console.log('connection succesful'))
-  .catch((err) => console.error(err));
+mongoose.connect('mongodb://localhost/todo-api', {
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+})
+.then(() =>  console.log('connection succesful'))
+.catch((err) => console.error(err));
 
 
 const app = express();
@@ -19,7 +23,14 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-
+app.use(cors({
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type',
+                    'Accept', 'X-Access-Token', 'Authorization'],
+    credentials: true,
+    methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+    origin: '*',
+    preflightContinue: false
+}));
 app.use('/', router);
 
 

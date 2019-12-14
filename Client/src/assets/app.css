@@ -18,11 +18,13 @@ body {
 	height: 70vh;
 	border-right: 1px solid #dedede;
 }
+.main--sidebar .list-group {
+	max-height: calc(70vh - 40px);
+	overflow-y: scroll;
+}
 .main--sidebar .list-group-item {
 	padding: .75rem;
 	opacity: 0.7;
-	background: #fefefe;
-	color: #999;
 }
 .main--sidebar .list-group-item.active {
 	background: #fff;
@@ -30,9 +32,6 @@ body {
 	color: #000;
 	border-color: rgba(0,0,0,.125);
 }
-
-
-
 
 /*
 
@@ -43,6 +42,20 @@ body {
 }
 .card--new:hover .card-body {
 	background: #eee;
+}
+.list--todo {
+	max-height: 280px;
+	overflow-y: scroll;
+}
+.list--todo li img {
+	cursor: pointer;
+	width: 20px;
+}
+.actionbar {
+	border-radius: 4px;
+	background: #efefef;
+	border: 1px solid #dedede;
+	padding: 10px;
 }
 
 
