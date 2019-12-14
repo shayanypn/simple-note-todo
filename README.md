@@ -1,5 +1,8 @@
 # simple note & todo
 
+
+![screenshot of application](https://raw.githubusercontent.com/shayanypn/simple-note-todo/master/screenshot.png)
+
 ### used Tech:
 - Client: React, Bootstrap, axios, Sweetalert2, Toastr
 - Server: Node.js, Express.js, Mongoose, Joi, nodemon
